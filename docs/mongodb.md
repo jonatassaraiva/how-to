@@ -24,11 +24,16 @@ Connect to mongodb and:
     user: "admin",
     pwd: "admin123",
     roles: [ 
-      { role: "userAdminAnyDatabase", db: "admin" },
-      { role: "userAdminAnyDatabase", db: "local" }
+      { role: "userAdminAnyDatabase", db: "admin" }
     ]
   }
 )
+```
+
+## Change password
+```CMake
+> use admin
+> db.changeUserPassword("admin", "admin123456789")
 ```
 
 ## Modify the user’s access.
@@ -37,7 +42,6 @@ Connect to mongodb and:
 > use admin
 > db.grantRolesToUser("admin",
     [{ role: "dbAdminAnyDatabase", db: "admin" }]
-  }
 )
 ```
 ### Revoke a role
