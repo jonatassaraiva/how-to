@@ -1,2 +1,2 @@
-# how-to
-How to
+# How To
+## [Install and configure mongodb](mongodb.md)
