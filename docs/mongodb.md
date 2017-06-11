@@ -84,3 +84,61 @@ security:
 > sudo service mongod restart
 > mongo -u admin -p "admin123" --authenticationDatabase "admin"
 ```
+
+## Change stores data files
+```
+> sudo vim /etc/mongod.conf
+```
+Current
+```CMake
+# Where and how to store data.
+storage:
+  dbPath: /var/lib/mongodb
+```
+Change to:
+```CMake
+# Where and how to store data.
+storage:
+  dbPath: /mnt/mongodb/data
+```
+Current
+```CMake
+# where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  path: /var/log/mongodb/mongod.log
+```
+Change to:
+```CMake
+# where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  path: /mnt/mongodb/log/mongod.log
+```
+
+## Set permissions
+```
+> sudo chown -R mongodb:mongodb /mnt/mongodb/
+```
+
+## Start MongoDB
+```
+> sudo service mongod start
+```
+
+## Stop MongoDB
+```
+> sudo service mongod stop
+```
+
+## Restart MongoDB
+```
+> sudo service mongod restart
+```
+
+## Status MongoDB
+```
+> sudo service mongod status
+```
